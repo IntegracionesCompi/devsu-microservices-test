@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: cuenta-service
+
+  datasource:
+    url: jdbc:postgresql://devsu-postgres:5432/devsu
+    username: devsu
+    password: devsu
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+cliente:
+  service:
+    base-url: http://cliente-service:8081

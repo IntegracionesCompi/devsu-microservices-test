@@ -1,0 +1,40 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: devsu-postgres
+    environment:
+      POSTGRES_DB: devsu
+      POSTGRES_USER: devsu
+      POSTGRES_PASSWORD: devsu
+    ports:
+      - "5432:5432"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: devsu-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  cliente-service:
+    build: ./cliente-service
+    container_name: cliente-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - postgres
+      - rabbitmq
+    ports:
+      - "8081:8081"
+
+  cuenta-service:
+    build: ./cuenta-service
+    container_name: cuenta-service
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      - postgres
+      - rabbitmq
+      - cliente-service
+    ports:
+      - "8082:8082"

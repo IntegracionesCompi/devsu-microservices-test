@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "c39b67af-425b-4cba-8349-100b251faaeb",
+		"name": "Devsu test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1834887"
+	},
+	"item": [
+		{
+			"name": "crear cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Juan Perez 5\",\n  \"genero\": \"M\",\n  \"edad\": 35,\n  \"identificacion\": \"12345678903\",\n  \"direccion\": \"Av Siempre Viva 123\",\n  \"telefono\": \"0999999999\",\n  \"contrasena\": \"devsu123\",\n  \"estado\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener clientes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put clientes",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"nombre\": \"Juan Perez 2\",\n        \"genero\": \"M\",\n        \"edad\": 35,\n        \"identificacion\": \"1234567890\",\n        \"direccion\": \"Av Siempre Viva 123\",\n        \"telefono\": \"0999999999\",\n        \"estado\": true,\n        \"contrasena\": \"devsu123\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes/38017712-fcca-440c-b147-5141146c0336",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"38017712-fcca-440c-b147-5141146c0336"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch clientes",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"telefono\": \"299999999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes/38017712-fcca-440c-b147-5141146c0336",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"38017712-fcca-440c-b147-5141146c0336"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete clientes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/clientes/eb0c3a32-a355-49f8-9aab-6f70dc8973f3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"eb0c3a32-a355-49f8-9aab-6f70dc8973f3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear cuenta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"numeroCuenta\": \"0001234567\",\n  \"tipoCuenta\": \"AHORROS\",\n  \"saldoInicial\": 1000,\n  \"estado\": true,\n  \"clienteId\": \"38017712-fcca-440c-b147-5141146c0336\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/cuentas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"cuentas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar retiro con saldo suficiente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cuentaId\": \"1e6d52f8-71e2-44d0-ad4a-e43e701f2af5\",\n  \"fecha\": \"2025-12-17\",\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 100\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/movimientos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movimientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registrar retiro sin saldo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cuentaId\": \"8c1db50c-03d5-4bf2-b3c4-1bbcb012b930\",\n  \"fecha\": \"2025-12-17\",\n  \"tipoMovimiento\": \"RETIRO\",\n  \"valor\": 999999\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/movimientos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"movimientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver reporte",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8082/reportes?clienteId=38017712-fcca-440c-b147-5141146c0336&fechaInicio=2025-12-01&fechaFin=2025-12-31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"reportes"
+					],
+					"query": [
+						{
+							"key": "clienteId",
+							"value": "38017712-fcca-440c-b147-5141146c0336"
+						},
+						{
+							"key": "fechaInicio",
+							"value": "2025-12-01"
+						},
+						{
+							"key": "fechaFin",
+							"value": "2025-12-31"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
